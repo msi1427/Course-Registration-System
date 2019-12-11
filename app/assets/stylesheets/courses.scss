@@ -1,0 +1,41 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.courses{
+  table{
+    border-collapse: collapse;
+  }
+
+  h1{
+    padding-bottom: 0.5em;
+    border-bottom: 3px dotted #774;
+  }
+
+  table tr td{
+    padding: 5px;
+    vertical-align: center;
+  }
+
+  .list_actions{
+    font-size: medium;
+    text-align: center;
+    padding-left: lem;
+  }
+
+  .list_line_even{
+    background: bisque;
+  }
+
+  .list_line_odd{
+    background: antiquewhite ;
+  }
+}
+
+#new_course{
+  padding-bottom: 0.5em;
+  font-family: "DejaVu Sans Mono";
+  font-size: 125%;
+  font-weight: bold;
+  color: #000000;
+  padding-left: 1.1em;
+}
