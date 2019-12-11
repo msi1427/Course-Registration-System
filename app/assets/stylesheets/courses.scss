@@ -12,8 +12,18 @@
   }
 
   table tr td{
+    padding: 20px;
+    vertical-align: center;
+    text-align: center;
+    font-size: 120%;
+  }
+
+  thead{
     padding: 5px;
     vertical-align: center;
+    background: #999999;
+    font-weight: bold;
+    font-size: 120%;
   }
 
   .list_actions{
