@@ -2,8 +2,8 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
@@ -13,3 +13,102 @@
  *= require_tree .
  *= require_self
  */
+
+body, body > p, body > ol, body >td {margin: 8px !important}
+
+#banner{
+  position: relative;
+  min-height: 50px;
+  background: lightblue;
+  padding: 30px;
+  border-bottom: 2px solid;
+  font-family: "Abyssinica SIL";
+  font-size: 500%;
+  font-weight: bold;
+  color: #2E2F30;
+  text-align: center;
+
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 192px;
+  }
+}
+
+#notice{
+  color: #000 !important;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#notice:empty{
+  display: none;
+}
+
+#columns{
+  background: #141;
+  display: flex;
+
+  #main{
+    padding: lem;
+    background: white;
+    flex: 1;
+  }
+
+  #side{
+    padding: 1em 2em;
+    background: aquamarine;
+    font-size: 150%;
+    font-weight: bold;
+
+    form, div{
+      display: inline;
+    }
+
+    input{
+      font-size: small;
+    }
+
+
+    ul{
+      padding: 0;
+      li{
+        list-style: square;
+        a{
+          color: #114411;
+          font-size: small;
+        }
+      }
+    }
+  }
+}
+
+//#date_time{
+//  position: relative;
+//  min-height: 5px;
+//  padding: 1px;
+//  border-bottom: #000000 2px solid;
+//  font-family: "DejaVu Sans Mono";
+//  font-size: 70%;
+//  color: black;
+//  text-align: center;
+//}
+
+@media all and (max-width: 800px) {
+  #columns{
+    flex-direction: column-reverse;
+  }
+}
+
+@media all and (max-width: 500px) {
+  #banner{
+    height: 1em;
+  }
+  #banner .title{
+    display: none;
+  }
+}
