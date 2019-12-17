@@ -23,7 +23,9 @@
 
   <div class="field">
     <%= form.label :department %>
-    <%= form.text_field :department %>
+    <%=  form.collection_select :department,
+                                Department.all.map {|a| [a.id, a.name]},
+                                :first, :second, {:prompt => true} %>
   </div>
 
   <div class="field">
