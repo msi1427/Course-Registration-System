@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div id="back">
 <p>
   <strong> Name:</strong>
   <%= @department.name  %>
@@ -19,6 +20,11 @@
   <strong>No. of Teachers:</strong>
   <%= @department.teacher_no %>
 </p>
+</div>
+
+<div id="actions">
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
+
+</div>

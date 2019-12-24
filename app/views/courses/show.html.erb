@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div id="back">
 <p>
   <strong>Title:</strong>
   <%= @course.title %>
@@ -24,6 +24,8 @@
   <strong>Credit:</strong>
   <%= @course.credit %>
 </p>
-
+</div>
+<div id="actions">
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
+</div>

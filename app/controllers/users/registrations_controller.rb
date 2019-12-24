@@ -4,23 +4,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   #skip_before_action :require_no_authentication, only: [:new]
-  skip_before_action :require_no_authentication, only: [:create]
+  skip_before_action :require_no_authentication, only: [:create, :cancel, :new]
   #skip_before_filter :authenticate_user!
 
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+   def new
+     super
+   end
 
   # POST /resource
    def create
-     puts "========================111111111111111111111111111"
-     puts "========================111111111111111111111111111"
-     puts "========================111111111111111111111111111"
-     puts "========================111111111111111111111111111"
-     puts "========================111111111111111111111111111"
-     puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
      super
    end
 
@@ -45,15 +45,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # cancel oauth signing in/up in the middle of the process,
   # removing all OAuth session data.
    def cancel
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
+     #puts "========================111111111111111111111111111"
      super
    end
 
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+   def configure_sign_up_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :std_id, :department, :semester, :email, :role, :password])
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

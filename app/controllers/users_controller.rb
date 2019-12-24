@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @users.update(users_params)
-        format.html { redirect_to @users, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @users }
       else
         format.html { render :edit }
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def destroy
     @users.destroy
     respond_to do |format|
-      format.html { redirect_to userss_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def users_params
-    params.require(:users).permit(:name, :std_id, :department, :semester, :email, :role, :password )
+    params.require(:users).permit(:name, :std_id, :department, :semester, :email, :role, :password, :password_confirmation )
   end
   
 end

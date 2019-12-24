@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div id="back">
+
+<p>
+  <strong>Name: </strong>
+  <%= @users.name %>
+</p>
+
+<p>
+  <strong>Student ID: </strong>
+  <%= @users.std_id %>
+</p>
+
+<p>
+  <strong>Department: </strong>
+  <%= @users.department %>
+</p>
+
+<p>
+  <strong>Semester: </strong>
+  <%= @users.semester %>
+</p>
+
+<p>
+  <strong>Email: </strong>
+  <%= @users.email %>
+</p>
+
+<p>
+  <strong>Role: </strong>
+  <%= @users.role %>
+</p>
+
+<p>
+  <strong>CGPA: </strong>
+  <%#= @users.cgpa %>
+</p>
+
+<p>
+  <strong>Photo: </strong>
+  <%#= @users.name %>
+</p>
+</div>
+<div id="actions">
+  <%= link_to 'Edit', edit_user_path(user) %> |
+  <%= link_to 'Back', users_path %>
+</div>

@@ -9,15 +9,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :std_id %>
+    <%= form.label :studentId %>
     <%= form.number_field :std_id %>
   </div>
 
   <div class="field">
     <%= form.label :department %>
-    <%=  form.collection_select :department,
-                                Department.all.map {|a| [a.name, a.name]},
-                                :first, :second, {:prompt => true} %>
+    <%=  form.collection_select :department, Department.all.map {|a| [a.name, a.name]}, :first, :second, {:prompt => true} %>
   </div>
 
   <div class="field">
@@ -31,15 +29,13 @@
   </div>
 
   <div class="field">
-    <%#= form.label :role %>
-    <%#= form.select :role_type, User.role_types.keys, prompt: 'Select Role' %>
+    <%= form.label :role %>
+    <%= form.select :role, ['Admin','Student'], prompt: 'Select Role' %>
   </div>
 
   <div class="field">
     <%= form.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    (6 characters minimum)<br/>
     <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 
@@ -49,6 +45,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Create" %>
+    <%= form.submit "Create User" %>
   </div>
 <% end %>
