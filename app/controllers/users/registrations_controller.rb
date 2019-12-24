@@ -3,6 +3,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  #skip_before_action :require_no_authentication, only: [:new]
+  skip_before_action :require_no_authentication, only: [:create]
+  #skip_before_filter :authenticate_user!
+
 
   # GET /resource/sign_up
   # def new
@@ -10,9 +14,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     puts "========================111111111111111111111111111"
+     puts "========================111111111111111111111111111"
+     puts "========================111111111111111111111111111"
+     puts "========================111111111111111111111111111"
+     puts "========================111111111111111111111111111"
+     puts "========================111111111111111111111111111"
+     super
+   end
 
   # GET /resource/edit
   # def edit
@@ -34,9 +44,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # in to be expired now. This is useful if the user wants to
   # cancel oauth signing in/up in the middle of the process,
   # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
+   def cancel
+     super
+   end
 
   # protected
 

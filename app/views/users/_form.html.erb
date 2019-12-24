@@ -1,7 +1,8 @@
+<%#= render "devise/shared/new" %>
 <%= form_with(model: users, local: true) do |form| %>
   <% if users.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(users.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <h2><%= pluralize(users.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
       <% users.errors.full_messages.each do |message| %>
@@ -23,10 +24,8 @@
 
   <div class="field">
     <%= form.label :department %>
-    <%=  form.collection_select :department,
-                                Department.all.map {|a| [a.name, a.name]},
-                                :first, :second, {:prompt => true} %>
-  </div>
+    <%=  form.collection_select :department, Department.all.map {|a| [a.name, a.name]},  :first, :second, {:prompt => true} %>
+</div>
 
   <div class="field">
     <%= form.label :semester %>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'courses#index', as: 'course_index'
-  devise_for :users, controllers:{sessions: 'users/sessions'}
+  devise_for :users, controllers:{sessions: 'users/sessions', :registrations => "users/registrations"}
   resources :users
   resources :departments
   resources :courses
