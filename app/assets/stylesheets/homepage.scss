@@ -11,4 +11,17 @@
     color: brown;
     text-align: center;
   }
+  #links ul{
+    padding: 2em;
+    font-weight: bold;
+    font-family: "sans-serif";
+    font-size: 200%;
+    li{
+      list-style: circle;
+      a{
+        color: #114411;
+        font-size: small;
+      }
+    }
+  }
 }

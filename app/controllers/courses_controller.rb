@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :admin_authenticate]
   before_action :authenticate_user!
+  before_action :admin_authenticate, only: [:update, :destroy, :create, :new, :edit]
   # GET /courses
   # GET /courses.json
   def index
@@ -71,4 +72,18 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :number, :department, :semester, :credit)
     end
+
+    def admin_authenticate
+      if current_user.role == 'Admin'
+        return true
+      else
+        redirect_to home_page_path
+        return false
+      end
+    end
+
+    #def admin_authenticate
+    #  return true if current_user.role == 'Admin'
+    #  redirect_to home_page_path
+    #end
 end

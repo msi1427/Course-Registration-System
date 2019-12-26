@@ -5,6 +5,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   #skip_before_action :require_no_authentication, only: [:new]
   skip_before_action :require_no_authentication, only: [:create, :cancel, :new, :update, :edit]
+  before_action :user_authenticate, only: [ :edit]
+  #before_action :admin_authenticate, only: [ :edit]
   #skip_before_filter :authenticate_user!
 
 
@@ -55,7 +57,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      super
    end
 
-  # protected
+   protected
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
@@ -70,6 +72,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
      super(resource)
+  end
+
+  def user_authenticate
+    if current_user.id == @user.id
+      return true
+    else
+      redirect_to home_page_path
+      return false
+    end
+  end
+
+  def admin_authenticate
+    if current_user.role == 'Admin'
+      return true
+    else
+      redirect_to home_page_path
+      return false
+    end
   end
 
   # The path used after sign up for inactive accounts.

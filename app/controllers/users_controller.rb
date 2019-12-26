@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  #before_action :user_authenticate, only: [ :edit]
+  before_action :admin_authenticate, only: [ :new, :destroy]
+  before_action :user_admin_authenticate, only: [:edit]
 
 
   def index
@@ -62,6 +65,33 @@ class UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:name, :std_id, :department, :semester, :email, :role, :password, :password_confirmation )
+  end
+
+  def user_authenticate
+    if current_user.id == @user.id
+      return true
+    else
+      redirect_to home_page_path
+      return false
+    end
+  end
+
+  def admin_authenticate
+    if current_user.role == 'Admin'
+      return true
+    else
+      redirect_to home_page_path
+      return false
+    end
+  end
+
+  def user_admin_authenticate
+    if current_user.role == 'Admin' or current_user.id == @user.id
+      return true
+    else
+      redirect_to home_page_path
+      return false
+    end
   end
   
 end

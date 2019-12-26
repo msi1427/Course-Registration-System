@@ -1,6 +1,7 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :admin_authenticate, only: [:update, :destroy, :create, :new, :edit]
   # GET /departments
   # GET /departments.json
   def index
@@ -70,5 +71,14 @@ class DepartmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def department_params
       params.require(:department).permit(:name, :head, :student_no, :teacher_no )
+    end
+
+    def admin_authenticate
+      if current_user.role == 'Admin'
+        return true
+      else
+        redirect_to home_page_path
+        return false
+      end
     end
 end
