@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  root 'courses#index', as: 'course_index'
+  get 'homepage/welcome'
+  root 'homepage#welcome', as: 'home_page'
   devise_for :users, controllers:{sessions: 'users/sessions', :registrations => "users/registrations"}
-  resources :users
+
+  scope :students do
+    resources :users
+  end
+
   resources :departments
   resources :courses
 

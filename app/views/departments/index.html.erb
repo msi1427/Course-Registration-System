@@ -3,7 +3,9 @@
 <h1>Departments</h1>
 
 <div id="new_department">
+  <% if current_user.role=="Admin" %>
 <%= link_to 'Add New Department', new_department_path %>
+    <%end %>
 </div>
 <table>
   <thead>
@@ -25,8 +27,10 @@
       <td><%= dept.teacher_no %></td>
       <td class="list_actions">
         <%= link_to 'Show', dept %> <br/>
+        <% if current_user.role=="Admin" %>
         <%= link_to 'Edit', edit_department_path(dept) %> <br/>
         <%= link_to 'Delete', dept, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
       </td>
     </tr>
   <% end %>
