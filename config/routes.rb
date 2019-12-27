@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'store/index'
   get 'homepage/welcome'
+  #get 'carts#create' as: 'create_carts'
   root 'homepage#welcome', as: 'home_page'
   devise_for :users, controllers:{sessions: 'users/sessions', :registrations => "users/registrations"}
 

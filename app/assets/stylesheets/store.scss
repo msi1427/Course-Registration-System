@@ -1,11 +1,7 @@
-// Place all the styles related to the Departments controller here.
+// Place all the styles related to the store controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.users{
+.store{
   table{
     border-collapse: collapse;
   }
@@ -55,40 +51,5 @@
       color: black;
     }
   }
-}
 
-#new_user{
-  padding-bottom: 2em;
-  padding-top: 1.5em;
-  font-family: "DejaVu Sans Mono";
-  font-size: 125%;
-  font-weight: bold;
-  color: #000000;
-  padding-left: 1.1em;
-}
-
-#back{
-  background: cadetblue;
-  display: flex;
-}
-
-#actions{
-  font-family: "DejaVu Sans Mono";
-  font-size: 125%;
-  color: black;
-  padding-left: 1.1em;
-  font-weight: bold;
-  color: black;
-}
-#im {
-  img {
-    padding: 1em ;
-    width: 250px;
-    height: 250px;
-  }
-}
-
-#pp_update {
-  padding: 1em;
-  background: #999999;
 }

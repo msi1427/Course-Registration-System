@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Courses to Register</h1>
+<table>
+  <thead>
+  <td>Course Title</td>
+  <td>Course Number</td>
+  <td>Department</td>
+  <td>Semester</td>
+  <td>Credit</td>
+  <td> </td>
+  </thead>
+  <tbody>
+  <% @course.each do |course| %>
+    <% if current_user.department == course.department and current_user.semester == course.semester  %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td><%= course.title %></td>
+      <td><%= course.number %></td>
+      <td><%= course.department %></td>
+      <td><%= course.semester %></td>
+      <td><%= course.credit %></td>
+      <td class="list_actions">
+          Choose
+      </td>
+    </tr>
+  <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
