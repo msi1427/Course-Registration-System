@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.order(:role)
+    @users = User.order(:std_id)
   end
   
   def show
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :std_id, :department, :semester, :email, :role, :password, :password_confirmation )
+    params.require(:user).permit(:name, :std_id, :department, :semester, :email, :role, :password, :password_confirmation, :avatar )
   end
 
   def user_authenticate

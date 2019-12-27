@@ -18,6 +18,10 @@
 <!--      Date: <br/> <%#= Time.now %> <br/>-->
 <!--    </div>-->
     <% if user_signed_in? %>
+
+      <div id="image">
+      <%= image_tag current_user.avatar.to_s %> <br/> <br/>
+      </div>
       <%= current_user.name %> <br/> <br/>
       <%= link_to 'Profile', current_user %> <br/>
       <br/>

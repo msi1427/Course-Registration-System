@@ -2,6 +2,13 @@
 
 <div id="back">
 
+  <p>
+<!--    <strong>Profile Picture: </strong> <br/>-->
+    <div id="im">
+    <%= image_tag @user.avatar.to_s %>
+    </div>
+  </p>
+<div id="profile_info">
 <p>
   <strong>Name: </strong>
   <%= @user.name %>
@@ -37,17 +44,29 @@
   <%#= @users.cgpa %>
 </p>
 
-<p>
-  <strong>Photo: </strong>
-  <%#= @users.name %>
-</p>
 </div>
+</div>
+<br/>
 <div id="actions">
   <% if current_user.role=="Admin" or current_user.std_id==@user.std_id %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %> |
   <%end %>
   <% if current_user.std_id==@user.std_id %>
   <%= link_to 'Change Password', edit_user_registration_path(current_user) %> |
+<!--    <%#= link_to 'Update Profile Picture', change_dp_change_path(current_user) %> |-->
   <%end %>
-  <%= link_to 'Back', users_path %>
+  <%= link_to 'Back', users_path %> <br/> <br/> <br/>
+  <% if current_user.std_id==@user.std_id %>
+        Update Profile picture
+    <%= form_with(model: @user, local: true) do |form| %>
+      <div class="field">
+        <%#= form.label :avatar %>
+        <%= form.file_field :avatar %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Update' %>
+      </div>
+    <%end %>
+
+  <% end %>
 </div>
