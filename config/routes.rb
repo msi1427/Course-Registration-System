@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
+  get 'registered/index'
   get 'store/index'
   get 'homepage/welcome'
   #get 'carts#create' as: 'create_carts'

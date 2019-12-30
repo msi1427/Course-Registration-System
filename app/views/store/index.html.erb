@@ -8,7 +8,7 @@
   <td>Department</td>
   <td>Semester</td>
   <td>Credit</td>
-  <td> </td>
+  <td>Choose</td>
   </thead>
   <tbody>
   <% @course.each do |course| %>
@@ -20,12 +20,13 @@
       <td><%= course.semester %></td>
       <td><%= course.credit %></td>
       <td class="list_actions">
-          Choose
+        <%= button_to 'Add Course', line_items_path(course_id: course) %>
       </td>
     </tr>
   <% end %>
   <% end %>
   </tbody>
+
 </table>
 
 <br>

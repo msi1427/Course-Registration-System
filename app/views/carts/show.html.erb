@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h2>Chosen Courses</h2>
+<table>
+  <% @cart.line_items.each do |item| %>
+    <tr>
+    <td><%= item.course.title %> </td>
+    <td><%= item.course.number %> </td>
+    <td> <%= item.course.credit %></td>
+    </tr>
+  <% end %>
+  <tr class="total_credit">
+    <td colspan="2">Total Credits</td>
+    <td class="total_cell"><%= @cart.total_credit %></td>
+  </tr>
+</table>
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
