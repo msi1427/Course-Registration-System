@@ -1,7 +1,7 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.courses{
+.gradings{
   table{
     border-collapse: collapse;
   }
@@ -53,7 +53,7 @@
   }
 }
 
-#new_course{
+#new_grade{
   padding-bottom: 0.5em;
   font-family: "DejaVu Sans Mono";
   font-size: 125%;

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gradings
   resources :line_items
   resources :carts
   get 'registered/index'

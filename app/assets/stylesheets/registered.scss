@@ -1,7 +1,7 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.courses{
+.registered{
   table{
     border-collapse: collapse;
   }
@@ -16,6 +16,14 @@
     vertical-align: center;
     text-align: center;
     font-size: 120%;
+  }
+  .total_credit{
+    padding-bottom: 0.5em;
+    font-family: "DejaVu Sans Mono";
+    font-size: 125%;
+    font-weight: bold;
+    color: #000000;
+    padding-left: 1.1em;
   }
 
   thead{
@@ -53,17 +61,12 @@
   }
 }
 
-#new_course{
-  padding-bottom: 0.5em;
-  font-family: "DejaVu Sans Mono";
-  font-size: 125%;
-  font-weight: bold;
-  color: #000000;
-  padding-left: 1.1em;
-}
+
 
 #wback{
+  padding-left: 1em;
   background: cadetblue;
+  color: black;
 }
 
 #actions{

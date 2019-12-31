@@ -1,6 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
+  before_action :authenticate_user!
+  before_action :admin_authenticate, only: [:destroy, :index]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -27,16 +29,21 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     #@line_item = LineItem.new(line_item_params)
-    course = Course.find(params[:course_id])
-    @line_item = @cart.add_course(course)
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to @line_item.cart}
-        format.json { render :show, status: :created, location: @line_item }
-      else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
+    if params[:course_ids]
+      #params[:course_ids].each do |course|
+        crs = Course.find(params[:course_ids])
+        @line_item = @cart.add_course(crs,current_user)
+        respond_to do |format|
+        if @line_item.save
+          format.html { redirect_to registered_index_path}
+          format.json { render :show, status: :created, location: @line_item }
+        else
+          format.html { render :new }
+          format.json { render json: @line_item.errors, status: :unprocessable_entity }
+          end
+        #end
+    end
+    else redirect_to store_index_path
     end
   end
 
@@ -74,4 +81,14 @@ class LineItemsController < ApplicationController
     def line_item_params
       params.require(:line_item).permit(:course_id)
     end
+
+  def admin_authenticate
+    if current_user.role == 'Admin'
+      return true
+    else
+      redirect_to home_page_path
+      return false
+    end
+  end
 end
+

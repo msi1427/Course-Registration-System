@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= form_with(url: line_items_path, method: :post, local: true) do |form| %>
 <h1>Courses to Register</h1>
 <table>
   <thead>
@@ -20,15 +20,17 @@
       <td><%= course.semester %></td>
       <td><%= course.credit %></td>
       <td class="list_actions">
-        <%= button_to 'Add Course', line_items_path(course_id: course) %>
+        <%= check_box_tag 'course_ids[]',course.id %>
+        <%#= button_to 'Add Course', line_items_path(course_id: course) %>
       </td>
     </tr>
   <% end %>
   <% end %>
   </tbody>
-
 </table>
-
-<br>
+  <div class="actions">
+    <%= form.submit 'Register' %>
+  </div>
+<% end %>
 
 

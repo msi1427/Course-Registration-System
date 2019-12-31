@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grading System</h1>
+<br/>
+<div id="new_grade">
+  <% if current_user.role=="Admin" %>
+    <%= link_to 'Add New Grade', new_grading_path %> <br/><br/>
+  <%end %>
+</div>
+<table>
+  <thead>
+  <td>Grade</td>
+  <td>Point</td>
+  <td> </td>
+  </thead>
+  <tbody>
+  <% @gradings.each do |grade| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td><%= grade.grade %></td>
+      <td><%= grade.point %></td>
+      <td class="list_actions">
+        <% if current_user.role=="Admin" %>
+          <%= link_to 'Edit', edit_grading_path(grade) %> <br/>
+          <%= link_to 'Delete', grade, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

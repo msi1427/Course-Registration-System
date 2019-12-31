@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Registrations</h1>
+<h1>Registered Courses</h1>
 <br/>
 <table>
   <thead>
@@ -12,6 +12,9 @@
   </thead>
   <tbody>
   <% @carts.each do |cart| %>
+    <%# if cart.user.id == current_user.id %>
+    <% cart.line_items.each do |it|  %>
+        <% if current_user.id == it.user.id %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td>
         <% cart.line_items.each do |item| %>
@@ -39,6 +42,9 @@
         <% end %>
       </td>
     </tr>
-    <%end %>
+  <% break %>
+  <%end %>
+  <%end %>
+  <%end %>
   </tbody>
 </table>
