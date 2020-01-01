@@ -1,5 +1,36 @@
-<h1>New Cart</h1>
 
-<%= render 'form', cart: @cart %>
-
-<%= link_to 'Back', carts_path %>
+<h1>Generate Results for <% user = User.find_by(id: params[:student_id]) %><%=user.name  %> (Semester : <%=user.semester %>)</h1>
+<br/>
+<%= form_with(url: results_path, method: :post, local: true) do |form| %>
+<% @cart = Cart.find_by(id: params[:id]) %>
+<div id="wback">
+  <% @cart.line_items.each do |item| %>
+    <br/>
+    <h2>Student Name : <%= item.user.name %></h2>
+    <h2>Semester : <%= item.user.semester %></h2>
+    <%break %>
+  <%end %>
+  <table>
+    <thead>
+    <td>Title</td>
+    <td>Code</td>
+    <td>Credit</td>
+    <td>Grades</td>
+    </thead>
+    <% @cart.line_items.each do |item| %>
+      <tr>
+        <!--      <td><%#= item.user.name %> </td>-->
+        <td><%= item.course.title %> </td>
+        <td><%= item.course.number %> </td>
+        <td> <%= item.course.credit %></td>
+        <td> <%= form.text_field :grades, multiple:true %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= form.hidden_field :id, :value=> @cart.id %>
+</div>
+  <div class="actions">
+    <%= form.submit "Generate" %>
+    <br/>
+  </div>
+  <%end %>

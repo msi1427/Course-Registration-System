@@ -1,5 +1,6 @@
 class GradingsController < ApplicationController
   before_action :set_grading, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :admin_authenticate, only: [:update, :destroy, :create, :new, :edit, :show]
   # GET /gradings
   # GET /gradings.json

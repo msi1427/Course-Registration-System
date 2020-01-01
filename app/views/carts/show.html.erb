@@ -3,6 +3,7 @@
 <div id="wback">
 <% @cart.line_items.each do |item| %>
     <br/>
+    <% @student = item.user %>
   <h2>Student Name : <%= item.user.name %></h2>
   <h2>Semester : <%= item.user.semester %></h2>
   <%break %>
@@ -26,5 +27,8 @@
     <td class="total_cell"><%= @cart.total_credit %></td>
   </tr>
 </table>
+  <% if current_user.role=="Admin" %> <br/>
+    <%= button_to 'Cancel Registration', @cart, method: :delete, data: { confirm: 'Are you sure?' } %> <br/>
+    <%= button_to 'Generate Results', new_cart_path,params:{student_id: @student.id, id: @cart.id }, method: :get %> <br/>
+  <% end %>
 </div>
-<%#= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>

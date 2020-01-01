@@ -1,0 +1,51 @@
+<h1>Semester</h1>
+<div id="list">
+<% @res.each do |res| %>
+  <% if res.semester == 1 and res.student_id == current_user.std_id %>
+    <%= link_to "First Semester", res_first_path  %> <br/> <br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 2 and res.student_id == current_user.std_id %>
+    <%= link_to "Second Semester", res_second_path  %> <br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 3 and res.student_id == current_user.std_id %>
+    <%= link_to "Third Semester", res_third_path  %><br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 4 and res.student_id == current_user.std_id %>
+    <%= link_to "Fourth Semester", res_fourth_path  %><br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 5 and res.student_id == current_user.std_id %>
+    <%= link_to "Fifth Semester", res_fifth_path  %><br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 6 and res.student_id == current_user.std_id %>
+    <%= link_to "Sixth Semester", res_sixth_path  %><br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 7 and res.student_id == current_user.std_id %>
+    <%= link_to "Seventh Semester", res_seventh_path  %><br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+<% @res.each do |res| %>
+  <% if res.semester == 8 and res.student_id == current_user.std_id %>
+    <%= link_to "Eigth Semester", res_eight_path  %><br/><br/>
+    <%break %>
+  <%end %>
+<% end %>
+</div>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @result.student_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @result.name %>
+</p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @result.semester %>
+</p>
+
+<p>
+  <strong>Course code:</strong>
+  <%= @result.course_code %>
+</p>
+
+<p>
+  <strong>Course name:</strong>
+  <%= @result.course_name %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @result.grade %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @result.point %>
+</p>
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>

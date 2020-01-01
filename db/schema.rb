@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_094305) do
+ActiveRecord::Schema.define(version: 2020_01_01_104649) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -52,6 +52,19 @@ ActiveRecord::Schema.define(version: 2019_12_31_094305) do
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["course_id"], name: "index_line_items_on_course_id"
     t.index ["user_id"], name: "index_line_items_on_user_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "student_id"
+    t.string "name"
+    t.integer "semester"
+    t.string "course_code"
+    t.string "course_name"
+    t.string "grade"
+    t.decimal "point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "course_credit"
   end
 
   create_table "users", force: :cascade do |t|

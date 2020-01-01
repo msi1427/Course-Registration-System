@@ -15,7 +15,7 @@
     <th> Semester </th>
     <th> Email</th>
     <th> Role </th>
-    <th> CGPA </th>
+<!--    <th> CGPA </th>-->
 <!--    <th> Photo </th>-->
     <th> </th>
   </tr>
@@ -32,19 +32,38 @@
       <td><%= user.name %></td>
       <td><%= user.std_id %></td>
       <td> <%= user.department %> </td>
-      <td><%= user.semester %></td>
+      <td>
+        <% if user.semester < 9  %>
+        <%= user.semester %>
+          <%elsif user.role == 'Admin' %>
+            N/A
+        <%else  %>
+        Graduated
+        <%end %>
+      </td>
       <td><%= user.email %></td>
       <td><%= user.role %></td>
-      <td><%#= user.cgpa %></td>
+<!--      <td><%##= user.cgpa %></td>-->
 <!--      <td><%##= #user.photo %></td>-->
 
       <td class="list_actions">
         <%= link_to 'Show', user %> <br/>
         <% if current_user.role=="Admin" %>
         <%= link_to 'Edit', edit_user_path(user) %> <br/>
-        <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %> <br/> <br/>
+          <% @carts = Cart.all %>
+          <% @carts.each do |cart| %>
+            <% cart.line_items.each do |item| %>
+              <% if item.user.id == user.id %>
+                <%= link_to 'Registered Courses', cart %> <br/>
+                <% break %>
+                <%end %>
+              <%end %>
+            <%end %>
+          <%#= link_to 'Results', res_index_path(id: params[:std_id]) %>
         <%end %>
       </td>
+
     </tr>
   <% end %>
   </tbody>

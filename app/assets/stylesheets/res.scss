@@ -1,0 +1,97 @@
+// Place all the styles related to the Departments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.res{
+  table{
+    border-collapse: collapse;
+  }
+
+  h1{
+    padding-bottom: 1em;
+    border-bottom: 3px dotted #999999;
+  }
+
+  table tr td{
+    padding: 20px;
+    vertical-align: center;
+    text-align: center;
+    font-size: 120%;
+  }
+
+  thead{
+    padding: 5px;
+    vertical-align: center;
+    background: #999999;
+    font-weight: bold;
+    font-size: 120%;
+  }
+
+  .list_actions{
+    font-size: medium;
+    text-align: center;
+    padding-left: lem;
+  }
+
+  .list_line_even{
+    background: bisque;
+  }
+
+  .list_line_odd{
+    background: antiquewhite ;
+  }
+
+  .total{
+    font-weight: bold;
+    background: #BBBBBB;
+    alignment: right;
+  }
+
+  p{
+    font-family: "DejaVu Sans Mono";
+    font-size: 125%;
+    font-weight: normal;
+    color: black;
+    padding-left: 1.1em;
+    strong{
+      font-weight: bold;
+      color: black;
+    }
+  }
+}
+
+#list{
+  padding-bottom: 2em;
+  padding-top: 1.5em;
+  font-family: "DejaVu Sans Mono";
+  font-size: 125%;
+  font-weight: bold;
+  color: #000000;
+  padding-left: 1.1em;
+}
+
+#back{
+  background: cadetblue;
+  display: flex;
+}
+
+#actions{
+  font-family: "DejaVu Sans Mono";
+  font-size: 125%;
+  color: black;
+  padding-left: 1.1em;
+  font-weight: bold;
+  color: black;
+}
+
+#im {
+  img {
+    padding: 1em ;
+    width: 250px;
+    height: 250px;
+  }
+}
+

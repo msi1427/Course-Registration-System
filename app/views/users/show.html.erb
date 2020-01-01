@@ -25,8 +25,13 @@
 </p>
 
 <p>
+  <% if @user.semester < 9 and @user.role != 'Admin' %>
   <strong>Semester: </strong>
   <%= @user.semester %>
+  <% else  %>
+    <strong>Status : Graduated</strong>
+  <%end %>
+
 </p>
 
 <p>
@@ -40,8 +45,19 @@
 </p>
 
 <p>
+  <% if current_user == 'Admin' or current_user.id == @user.id %>
   <strong>CGPA: </strong>
+    <% cgpa = 0 %>
+    <% total = 0 %>
+    <% @res = Result.all %>
+    <% @res.each do |result| %>
+      <% cgpa = cgpa + result.point * result.course_credit %>
+      <% total = total + result.course_credit %>
+    <% end %>
+    <%= number_with_precision(cgpa/total, precision: 2) %></td>
+
   <%#= @users.cgpa %>
+    <%end %>
 </p>
 
 </div>

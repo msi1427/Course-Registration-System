@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.order(:std_id)
+    @users = User.order(:semester)
   end
   
   def show

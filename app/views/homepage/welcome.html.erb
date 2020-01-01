@@ -8,6 +8,7 @@
   <% if current_user.role != "Admin" %>
     <li><%= link_to 'Registration', store_index_path %></li>
     <li><%= link_to 'Registered Courses', registered_index_path %></li>
+    <li><%= link_to 'Results', res_index_path %></li>
   <% end %>
   <% if current_user.role == "Admin" %>
     <li><%= link_to 'All Registrations', carts_path %></li>

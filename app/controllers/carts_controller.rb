@@ -2,9 +2,10 @@ class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :user_authenticate, :user_admin_authenticate]
   before_action :authenticate_user!
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-  before_action :admin_authenticate, only: [:destroy, :index]
-  before_action :user_authenticate, only: [:create, :new]
-  before_action :user_admin_authenticate, only: [:show ]
+  before_action :admin_authenticate, only: [:destroy, :index, :new]
+  before_action :user_authenticate, only: [:create]
+  before_action :user_admin_authenticate, only: [:show]
+  #before_action :set_student, only:[:show]
 
   # GET /carts
   # GET /carts.json
