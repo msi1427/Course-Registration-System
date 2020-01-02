@@ -36,3 +36,4 @@ class RegisteredController < ApplicationController
   end
 
 end
+

@@ -1,4 +1,5 @@
 class ResController < ApplicationController
+  before_action :authenticate_user!
   def index
     @res = Result.order(:semester)
   end
@@ -34,4 +35,7 @@ class ResController < ApplicationController
   def eighth
     @res = Result.order(:course_name)
   end
+
+  private
+
 end

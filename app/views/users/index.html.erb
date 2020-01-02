@@ -60,7 +60,7 @@
                 <%end %>
               <%end %>
             <%end %>
-          <%#= link_to 'Results', res_index_path(id: params[:std_id]) %>
+          <%= link_to 'Results', res_index_path(id: user.id), method: :get %>
         <%end %>
       </td>
 

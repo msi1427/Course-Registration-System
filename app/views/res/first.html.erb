@@ -9,12 +9,12 @@
     <th>Grade</th>
   </tr>
   </thead>
-
+  <% @user = User.find_by(id: params[:id]) %>
   <tbody>
   <% gpa = 0 %>
   <% total = 0 %>
   <% @res.each do |result| %>
-    <% if result.student_id == current_user.std_id and result.semester == 1%>
+    <% if result.student_id == @user.std_id and result.semester == 1%>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td><%= result.course_name %></td>
       <td><%= result.course_code %></td>

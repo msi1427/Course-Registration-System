@@ -13,7 +13,7 @@ class Result < ApplicationRecord
       #puts("#{grades[x]}")
       #puts("#{pt.point}")
       current_item = Result.create(student_id: cart.line_items[x].user.std_id, name: cart.line_items[x].user.name, semester: cart.line_items[x].user.semester,
-                                    course_code: cart.line_items[x].course.number, course_name: cart.line_items[x].course.title, grade: grades[x], point: pt.point,
+                                   course_code: cart.line_items[x].course.number, course_name: cart.line_items[x].course.title, grade: grades[x], point: pt.point,
                                    course_credit: cart.line_items[x].course.credit)
     end
     user = User.find_by(id: user_id)
