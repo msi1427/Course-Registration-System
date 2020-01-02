@@ -18,46 +18,61 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :Student_ID %>
-    <%= form.number_field :std_id %>
-  </div>
+  <% if current_user.role == 'Student' %>
+    <%= form.hidden_field :std_id, :value=> @user.std_id %>
+  <%else  %>
+    <div class="field">
 
-  <div class="field">
-    <%= form.label :department %>
-    <%=  form.collection_select :department, Department.all.map {|a| [a.name, a.name]},  :first, :second, {:prompt => true} %>
-  </div>
+      <%= form.label :Student_ID %>
+      <%= form.number_field :std_id %>
+    </div>
+  <%end %>
 
-  <div class="field">
-    <%= form.label :semester %>
-    <%= form.number_field :semester %>
-  </div>
+  <% if current_user.role == 'Student' %>
+    <%= form.hidden_field :department, :value=> @user.department %>
+  <%else  %>
+    <div class="field">
+      <%= form.label :department %>
+      <%=  form.collection_select :department, Department.all.map {|a| [a.name, a.name]},  :first, :second, {:prompt => true} %>
+    </div>
+  <%end %>
+
+  <% if current_user.role == 'Student' %>
+    <%= form.hidden_field :semester, :value=> @user.semester %>
+  <%else  %>
+    <div class="field">
+      <%= form.label :semester %>
+      <%= form.number_field :semester %>
+    </div>
+  <%end %>
 
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
+  <% if current_user.role == 'Student' %>
+    <%= form.hidden_field :role, :value=> @user.role %>
+  <%else  %>
+    <div class="field">
+      <%= form.label :role %>
+      <%= form.select :role, ['Admin','Student'], prompt: 'Select Role' %>
+    </div>
+  <%end %>
+  <!--  <div class="field">-->
+  <%#= form.label :current_password %>
+  <%#= form.password_field :current_password, autocomplete: "current-password" %>
+  <!--  </div>-->
 
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.select :role, ['Admin','Student'], prompt: 'Select Role' %>
-  </div>
+  <!--  <div class="field">-->
+  <%#= form.label :password %>
+  <!--    (6 characters minimum)<br/>-->
+  <%#= form.password_field :password, autocomplete: "new-password" %>
+  <!--  </div>-->
 
-<!--  <div class="field">-->
-    <%#= form.label :current_password %>
-    <%#= form.password_field :current_password, autocomplete: "current-password" %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= form.label :password %>
-<!--    (6 characters minimum)<br/>-->
-    <%#= form.password_field :password, autocomplete: "new-password" %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-<!--    <%#= form.label :password_confirmation %><br />-->
-    <%#= form.password_field :password_confirmation, autocomplete: "new-password" %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <!--    <%#= form.label :password_confirmation %><br />-->
+  <%#= form.password_field :password_confirmation, autocomplete: "new-password" %>
+  <!--  </div>-->
 
   <div class="actions">
     <%= form.submit %>
@@ -65,8 +80,8 @@
 <% end %>
 
 <div id="actions">
-<!--<%#= link_to 'Show', @department %> |-->
+  <!--<%#= link_to 'Show', @department %> |-->
   <br/>
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Back', users_path %>
   <br/>
 </div>
