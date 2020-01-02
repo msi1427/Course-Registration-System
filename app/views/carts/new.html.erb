@@ -23,7 +23,8 @@
         <td><%= item.course.title %> </td>
         <td><%= item.course.number %> </td>
         <td> <%= item.course.credit %></td>
-        <td> <%=  form.collection_select :grades, Grades.all.map {|a| [a.grade, a.grade]},  :first, :second, {:prompt => true}, multiple: true %></td>
+       <!--  <%=  form.collection_select :grades, Grades.all.map {|a| [a.grade, a.grade]},  :first, :second, {:prompt => true} %> -->
+        <td> <%= form.text_field :grades, multiple:true %></td>
       </tr>
     <% end %>
   </table>
