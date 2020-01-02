@@ -29,20 +29,20 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     #@line_item = LineItem.new(line_item_params)
-    if params[:course_ids]
+    if params[:course_ids] != nil
       #params[:course_ids].each do |course|
-        crs = Course.find(params[:course_ids])
-        @line_item = @cart.add_course(crs,current_user)
-        respond_to do |format|
+      crs = Course.find(params[:course_ids])
+      @line_item = @cart.add_course(crs,current_user)
+      respond_to do |format|
         if @line_item.save
           format.html { redirect_to registered_index_path}
           format.json { render :show, status: :created, location: @line_item }
         else
           format.html { render :new }
           format.json { render json: @line_item.errors, status: :unprocessable_entity }
-          end
+        end
         #end
-    end
+      end
     else redirect_to store_index_path
     end
   end
@@ -72,15 +72,15 @@ class LineItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def line_item_params
-      params.require(:line_item).permit(:course_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def line_item_params
+    params.require(:line_item).permit(:course_id)
+  end
 
   def admin_authenticate
     if current_user.role == 'Admin'

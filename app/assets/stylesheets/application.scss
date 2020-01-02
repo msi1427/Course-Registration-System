@@ -28,12 +28,6 @@ body, body > p, body > ol, body >td {margin: 8px !important}
   color: #2E2F30;
   text-align: center;
 
-  img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 192px;
-  }
 }
 
 #notice{
@@ -115,7 +109,9 @@ body, body > p, body > ol, body >td {margin: 8px !important}
 
 #image {
   img {
-    padding-left: 20.1em;
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 115px;
     height: 114px;
   }
