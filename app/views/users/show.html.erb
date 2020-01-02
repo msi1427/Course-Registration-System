@@ -56,7 +56,7 @@
       <% total = total + result.course_credit %>
     <% end %>
     <% end %>
-     <% if current_user.role != 'Admin' and current_user.semester > 1 %>
+     <% if @user.role != 'Admin' and current_user.semester > 1 %>
         <strong>CGPA: </strong>
         <%= number_with_precision(cgpa/total, precision: 2) %></td>
         <% end %>
