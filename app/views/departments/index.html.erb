@@ -12,8 +12,6 @@
     <tr>
       <th> Name </th>
       <th> Head </th>
-      <th> No. of Students </th>
-      <th> No. of Teachers </th>
       <th> </th>
     </tr>
   </thead>
@@ -23,8 +21,6 @@
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td><%= dept.name %></td>
       <td><%= dept.head %></td>
-      <td><%= dept.student_no %></td>
-      <td><%= dept.teacher_no %></td>
       <td class="list_actions">
         <%= link_to 'Show', dept %> <br/>
         <% if current_user.role=="Admin" %>
