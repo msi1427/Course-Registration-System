@@ -1,53 +1,52 @@
 <%= redirect_to home_page_path %>
-<!-- 
-<h2>New User Registration</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<!--<h2>New User Registration</h2>-->
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= form.label :studentId %>
-    <%= form.number_field :std_id %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :name %>
+    <%#= form.text_field :name %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :department %>
-    <%=  form.collection_select :department, Department.all.map {|a| [a.name, a.name]}, :first, :second, {:prompt => true} %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :studentId %>
+    <%#= form.number_field :std_id %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :semester %>
-    <%= form.number_field :semester %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :department %>
+    <%#=  form.collection_select :department, Department.all.map {|a| [a.name, a.name]}, :first, :second, {:prompt => true} %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :semester %>
+    <%#= form.number_field :semester %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.select :role, ['Admin','Student'], prompt: 'Select Role' %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :email %>
+    <%#= form.text_field :email %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :password %>
-    (6 characters minimum)<br/>
-    <%= form.password_field :password, autocomplete: "new-password" %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :role %>
+    <%#= form.select :role, ['Admin','Student'], prompt: 'Select Role' %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :password %>
+<!--    (6 characters minimum)<br/>-->
+    <%#= form.password_field :password, autocomplete: "new-password" %>
+<!--  </div>-->
 
-  <div class="actions">
-    <%= form.submit "Create User" %>
-  </div>
-<% end %>
- -->
+<!--  <div class="field">-->
+<!--    <%#= form.label :password_confirmation %><br />-->
+    <%#= form.password_field :password_confirmation, autocomplete: "new-password" %>
+<!--  </div>-->
+
+<!--  <div class="actions">-->
+    <%#= form.submit "Create User" %>
+<!--  </div>-->
+<%# end %>
