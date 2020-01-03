@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Live Project Link : http://course-registration-system.herokuapp.com/
 
-Things you may want to cover:
+This is a gateway for the students to register to courses and see their published results. 
+There are two roles : Admin and Student
 
-* Ruby version
+Admins can =>
+* Create, Update and Delete Courses
+* Create, Update and Delete Gradings
+* Create, Update and Delete Departments
+* Create, Update and Delete Users
+* Generate Results for the registered students
+* Change Roles
+* Cancel Registration
+* See every students Results
 
-* System dependencies
+Students can => 
+* Change only their password
+* Update only their profile
+* Register and see only their results
+* See other users, departments, courses and current grading system
+* See only their registrations
 
-* Configuration
+* Framework : Ruby on Rails
+* Styling Language : HTML, ERB, SCSS, jQuery
+* Programming Language : Ruby
+* Database : SQLite3, Postgresql
+* Deployment Server : Heroku
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can use the following to get access
+* Email : dummy@gmail.com
+* Password : dummy1
