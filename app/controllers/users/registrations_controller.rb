@@ -6,36 +6,37 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #skip_before_action :require_no_authentication, only: [:new]
   skip_before_action :require_no_authentication, only: [:create, :cancel, :new, :update, :edit]
   before_action :user_authenticate, only: [ :edit]
+  before_action :authenticate_user!
   #before_action :admin_authenticate, only: [ :edit]
   #skip_before_filter :authenticate_user!
 
 
   # GET /resource/sign_up
-   def new
-     super
-   end
+  def new
+    super
+  end
 
   # POST /resource
-   def create
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     super
-   end
+  def create
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    super
+  end
 
   # GET /resource/edit
-   def edit
-     super
-   end
+  def edit
+    super
+  end
 
   # PUT /resource
-   def update
-     super
-     #redirect_to users_path
-   end
+  def update
+    super
+    #redirect_to users_path
+  end
 
   # DELETE /resource
   # def destroy
@@ -47,31 +48,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # in to be expired now. This is useful if the user wants to
   # cancel oauth signing in/up in the middle of the process,
   # removing all OAuth session data.
-   def cancel
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     #puts "========================111111111111111111111111111"
-     super
-   end
+  def cancel
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    #puts "========================111111111111111111111111111"
+    super
+  end
 
-   protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-   def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :std_id, :department, :semester, :email, :role, :password])
-   end
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-   def configure_account_update_params
-     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :std_id, :department, :semester, :email, :role, :password, :password_confirmation, :current_password])
-   end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :std_id, :department, :semester, :email, :role, :password])
+  end
+
+  # If you have extra params to permit, append them to the sanitizer.
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :std_id, :department, :semester, :email, :role, :password, :password_confirmation, :current_password])
+  end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-     super(resource)
+    super(resource)
   end
 
   def user_authenticate
